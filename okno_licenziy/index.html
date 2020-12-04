@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Work Project</title>
+    <style>
+      @font-face {
+        font-family: "Bebas";
+        src: url("./Bebas-Regular.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+      html {
+        font-family: "Bebas", sans-serif;
+        color: #3c3c3c;
+        font-size: 20px;
+        font-weight: 500;
+      }
+      button,
+      button:active,
+      button:focus {
+        outline: none;
+      }
+      .form-wrapper {
+        margin: 50px auto;
+        width: 706px;
+        height: 720px;
+        background-color: #f8f8f8;
+        border: 10px solid #ebebeb;
+      }
+      .form {
+        margin: 25px 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .form > div {
+        width: 662px;
+        height: 88px;
+        margin: 0 22px;
+        line-height: 88px;
+        position: relative;
+      }
+      input {
+        appearance: none;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        border: 3px solid #dadada;
+        transition: 0.2s all linear;
+        outline: none;
+        margin-right: 5px;
+        position: relative;
+        top: 4px;
+      }
+      input:checked {
+        border: 3px solid #34648e;
+        background-color: #bcd9e3;
+      }
+      .chosen {
+        background-color: #ebf4f7;
+        border: 2px solid #bcd9e3;
+        width: 658px !important;
+        height: 84px !important;
+      }
+      .select-wrapper {
+        text-align: center;
+        margin: 12px 22px !important;
+      }
+      .select-wrapper::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #dadada;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .select-wrapper::after {
+        content: "";
+        width: 100%;
+        height: 2px;
+        background-color: #dadada;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+      .button-wrapper {
+        text-align: center;
+      }
+      .button-wrapper > h2 {
+        height: 60px;
+        margin: 0;
+      }
+      .button-wrapper > button {
+        width: 240px;
+        height: 60px;
+        border: none;
+        border-radius: 30px;
+        background-color: #33a845;
+        color: #fff;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .button-wrapper > button:active {
+        background-color: #2c9239;
+      }
+      .float-right {
+        float: right;
+        margin-right: 30px;
+      }
+      .float-left {
+        float: left;
+        margin-left: 30px;
+      }
+      #current-plan {
+        font-weight: 400;
+        color: #34648e;
+      }
+      #total-sum {
+        font-weight: 400;
+        color: #34648e;
+        position: relative;
+      }
+      #total-sum::after {
+        content: "US";
+        position: absolute;
+        top: 5px;
+        right: -14px;
+        font-size: 16px;
+        line-height: normal;
+      }
+      #numbers {
+        width: 50px;
+        height: 30px;
+      }
+    </style>
+</head>
+<body>
+<section class="form-wrapper">
+    <form class="form">
+
+        <div id="a1" class="chosen">
+            <span class="float-left">
+                 <label>
+                     <input onclick="choseFirst()" type="radio" name="answer" value="13" checked>
+                     LICENSE PLAN #1
+                 </label>
+            </span>
+            <span class="float-right">
+                $13 PER LICENSE
+            </span>
+        </div>
+
+        <div id="a2">
+            <span class="float-left">
+                <label>
+                    <input onclick="choseSecond()" type="radio" name="answer" value="22">
+                    LICENSE PLAN #2
+                </label>
+            </span>
+            <span class="float-right">
+                $22 PER LICENSE
+            </span>
+        </div>
+
+        <div id="a3">
+            <span class="float-left">
+                <label>
+                    <input onclick="choseThird()" type="radio" name="answer" value="34">
+                    LICENSE PLAN #3
+                </label>
+            </span>
+            <span class="float-right">
+                $34 PER LICENSE
+            </span>
+        </div>
+
+        <div class="select-wrapper">
+            <label>
+                Number of licenses:
+                <select onchange="licenses()" name="numbers" id="numbers">
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option selected value="10">10</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="button-wrapper">
+            <h2>TOTAL: <span id="total-sum"></span></h2>
+            <button onclick="alert(TotalSum)" type="button" >BUY NOW</button>
+            <!-- Не был уверен что нужно было сделать в 4 задании поэтому повесил alert -->
+            <h3 id="current-plan"></h3>
+        </div>
+
+    </form>
+</section>
+<script>
+
+    let licensesNumber,
+        Sum,
+        Selected,
+        TotalSum
+
+    const elementOne = document.getElementById("a1"),
+        elementTwo = document.getElementById("a2"),
+        elementThree = document.getElementById("a3")
+
+    let licenses = function () {
+        licensesNumber = document.getElementById("numbers").value
+        TotalSum = Sum * licensesNumber
+        document.getElementById("total-sum").innerHTML = `$${TotalSum}`
+    }
+    let totalSum = function (sum) {
+        Sum = sum
+        TotalSum = Sum * licensesNumber
+        document.getElementById("total-sum").innerHTML = `$${TotalSum}`
+    }
+    let selected = function (selected) {
+        Selected = selected
+        document.getElementById("current-plan").innerHTML = `Selected plan: ${Selected}`
+    }
+
+    licenses()
+    totalSum(13)        /* Устанавливаем данные по умолчанию */
+    selected("#1")
+
+    /*    При большем количестве элементов стоит использовать этот скрипт
+    const wrapObj = document.querySelector('.option-container');
+        wrapObj.onclick = function(e){
+            for(let i = 0; i < wrapObj.children.length; i++){
+                wrapObj.children[i].classList.remove('chosen');
+            }
+            e.target.classList.add('chosen');
+        }
+    */
+
+    let choseFirst = () => {
+        elementOne.classList.add("chosen")
+        elementTwo.classList.remove("chosen")
+        elementThree.classList.remove("chosen")
+        totalSum(13)
+        selected("#1")
+    }
+    let choseSecond = () => {
+        elementOne.classList.remove("chosen")
+        elementTwo.classList.add("chosen")
+        elementThree.classList.remove("chosen")
+        totalSum(22)
+        selected("#2")
+    }
+    let choseThird = () => {
+        elementOne.classList.remove("chosen")
+        elementTwo.classList.remove("chosen")
+        elementThree.classList.add("chosen")
+        totalSum(34)
+        selected("#3")
+    }
+
+</script>
+</body>
+</html>
