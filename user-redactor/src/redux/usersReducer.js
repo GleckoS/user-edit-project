@@ -1,23 +1,34 @@
 let initialSliderState = {
     userList: [],
+    filteredArray: [],
     showedArray: [],
     currentItem: null,
     isFetching: true,
     isEditing: false
 }
+
 const SET_USERS = "SET_USERS",
     SET_CURRENT_ITEM = "SET_CURRENT_ITEM",
     CHANGE_EDITING = "CHANGE_EDITING",
-    SET_SHOWED_ARRAY = "SET_SHOWED_ARRAY"
+    SET_SHOWED_ARRAY = "SET_SHOWED_ARRAY",
+    SET_FILTERED_ARRAY = "SET_FILTERED_ARRAY",
+    INITIALISE = "INITIALISE"
 
 const LoginReducer = (state = initialSliderState, action) => {
     switch (action.type) {
-        case SET_USERS: {
+        case INITIALISE: {
             return {
                 ...state,
                 userList: action.userList,
                 showedArray: action.userList,
+                filteredArray: action.userList,
                 isFetching: false
+            }
+        }
+        case SET_USERS: {
+            return {
+                ...state,
+                userList: action.userList,
             }
         }
         case SET_CURRENT_ITEM: {
@@ -39,6 +50,13 @@ const LoginReducer = (state = initialSliderState, action) => {
                 showedArray: action.arr
             }
         }
+        case SET_FILTERED_ARRAY: {
+            return {
+                ...state,
+                filteredArray: action.arr,
+                showedArray: action.arr
+            }
+        }
         default: {
             return state
         }
@@ -51,6 +69,8 @@ const setUsers = (userList) => ({type: SET_USERS, userList})
 const setCurrentItem = (id) => ({type: SET_CURRENT_ITEM, id})
 const changeEditing = () => ({type: CHANGE_EDITING})
 const setShowedArray = (arr) => ({type: SET_SHOWED_ARRAY, arr})
+const setFilteredArray = (arr) => ({type: SET_FILTERED_ARRAY, arr})
+const initialise = (userList) => ({type: INITIALISE, userList})
 
 export const setCurrentItemThunk = (id) => {
     return (dispatch) => {
@@ -83,6 +103,24 @@ export const ChangeUserThunk = (currentUser) => {
     }
 }
 
+export const initialiseThunk = () => {
+    return (dispatch) => {
+        fetch(`http://localhost:8000/users`)
+            .then(res => res.json())
+            .then(
+                (response) => {
+                    dispatch(initialise(response))
+                }
+            )
+    }
+}
+
+export const setFilteredArrayThunk = (arr) => {
+    return (dispatch) => {
+        dispatch(setFilteredArray(arr))
+    }
+}
+
 export const DeleteUserThunk = (id) => {
     return (dispatch) => {
         fetch(`http://localhost:8000/users/${id}`, {
@@ -97,18 +135,6 @@ export const DeleteUserThunk = (id) => {
                                 dispatch(setUsers(response))
                             }
                         )
-                }
-            )
-    }
-}
-
-export const SetUsersThunk = () => {
-    return (dispatch) => {
-        fetch(`http://localhost:8000/users`)
-            .then(res => res.json())
-            .then(
-                (response) => {
-                    dispatch(setUsers(response))
                 }
             )
     }

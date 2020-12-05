@@ -39,7 +39,7 @@ const Button = styled.button`
 
 const UserList = (props) => {
 
-    const { showedArray, isEditing, DeleteUserThunk, EditChange} = props
+    const { showedArray, isEditing, DeleteItem, EditChange} = props
 
     return (
         <section>
@@ -56,12 +56,8 @@ const UserList = (props) => {
                             <p>Last Change: {item.changeDate}</p>
                         </Item>
                         <Flex>
-                            <Button onClick={() => {
-                                EditChange(item)
-                            }}>Редактировать</Button>
-                            <Button onClick={() => {
-                                DeleteUserThunk(item.id)
-                            }}>Удалить</Button>
+                            <Button onClick={() => {EditChange(item)}}>Редактировать</Button>
+                            <Button onClick={() => {DeleteItem(item.id)}}>Удалить</Button>
                         </Flex>
                     </ItemContainer>
                 )}

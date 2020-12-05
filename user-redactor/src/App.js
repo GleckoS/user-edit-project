@@ -1,5 +1,5 @@
 import React from "react";
-import {SetUsersThunk} from "./redux/usersReducer";
+import {initialiseThunk} from "./redux/usersReducer";
 import {connect} from "react-redux";
 import UserListContainer from "./components/UserList/UserListContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
@@ -7,8 +7,8 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 
 function App(props) {
 
-    props.SetUsersThunk()
-
+    props.initialiseThunk()
+    debugger
     return (
         <>
             {props.isFetching
@@ -30,4 +30,4 @@ const MapStateToProps = (state) => {
     }
 }
 
-export default connect(MapStateToProps, {SetUsersThunk})(App)
+export default connect(MapStateToProps, {initialiseThunk})(App)

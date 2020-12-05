@@ -59,16 +59,17 @@ const Select = styled.select`
 
 const Header = (props) => {
 
-    const {RegChange, showReg, handleClickSearch} = props
+    const {RegChange, showReg, handleClickSearch, changeShow} = props
 
     return(
         <header>
             <Wrapper>
                 <Item>
-                    <Select>
-                        <option>client</option>
-                        <option>partner</option>
-                        <option>admin</option>
+                    <Select onChange={(value) => {changeShow(value.target.value)}}>
+                        <option value="0">all</option>
+                        <option value="client">client</option>
+                        <option value="partner">partner</option>
+                        <option value="admin">admin</option>
                     </Select>
                 </Item>
                 <Item>

@@ -1,10 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import {useForm} from "react-hook-form";
 import {connect} from "react-redux";
 import {RegisterThunk} from "../../redux/usersReducer";
 import Register from "./Register";
-
+import {Reload} from "../../common/reload";
 
 
 const RegisterContainer = (props) => {
@@ -28,7 +27,7 @@ const RegisterContainer = (props) => {
             })
 
         RegChange()
-
+        Reload()
     }
     return (
         <Register
