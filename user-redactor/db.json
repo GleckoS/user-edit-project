@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "fullName": "Bohdan Shevchenko",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123456",
+      "phone": "111-111-1111",
+      "createDate": "4.11.2020",
+      "changeDate": "5.11.2020",
+      "accType": "client",
+      "id": 2
+    },
+    {
+      "fullName": "Bohdan Shevchenko",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123456",
+      "phone": "712-123-4567",
+      "createDate": "4.11.2020",
+      "changeDate": "4.11.2020",
+      "accType": "admin",
+      "id": 3
+    },
+    {
+      "fullName": "Bohdan Shevchenko",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123456",
+      "phone": "712-123-4567",
+      "createDate": "4.11.2020",
+      "changeDate": "4.11.2020",
+      "accType": "client",
+      "id": 4
+    },
+    {
+      "fullName": "Bohdan Shevchenko",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123456",
+      "phone": "712-123-4567",
+      "createDate": "5.11.2020",
+      "changeDate": "5.11.2020",
+      "accType": "client",
+      "id": 5
+    },
+    {
+      "fullName": "Bohdan Shevchenko",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123456",
+      "phone": "712-123-4567",
+      "createDate": "4.11.2020",
+      "changeDate": "4.11.2020",
+      "accType": "admin",
+      "id": 6
+    }
+  ]
+}
