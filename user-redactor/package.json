@@ -23,9 +23,11 @@
     "start": "react-scripts start",
     "mock": "json-server --watch db.json --port 8000",
     "dev": "concurrently \"npm run start\" \"npm run mock\"",
+
     "build": "react-scripts build",
-    "prod": "concurrently \"npm run build\" \"npm run mock\"",
-    "test": "react-scripts test",
+    "test": "node serve.js",
+    "prod": "concurrently \"npm run build\" \"npm run test\"",
+
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
