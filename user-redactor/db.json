@@ -7,43 +7,23 @@
       "phone": "712-123-4567",
       "createDate": "4.11.2020",
       "changeDate": "5.11.2020",
-      "accType": "admin",
-      "id": 1
-    },
-    {
-      "fullName": "Bohdan Shevchenko",
-      "email": "shevabogdan16@gmail.com",
-      "pass": "123456",
-      "phone": "712-123-4567",
-      "createDate": "4.11.2020",
-      "changeDate": "5.11.2020",
-      "accType": "admin",
+      "accType": "client",
       "id": 2
     },
     {
       "fullName": "Bohdan Shevchenko",
       "email": "shevabogdan16@gmail.com",
-      "pass": "123456",
+      "pass": "123456123",
       "phone": "712-123-4567",
       "createDate": "4.11.2020",
       "changeDate": "5.11.2020",
-      "accType": "admin",
+      "accType": "client",
       "id": 3
     },
     {
       "fullName": "Bohdan Shevchenko",
       "email": "shevabogdan16@gmail.com",
-      "pass": "123456",
-      "phone": "712-123-4567",
-      "createDate": "4.11.2020",
-      "changeDate": "5.11.2020",
-      "accType": "admin",
-      "id": 4
-    },
-    {
-      "fullName": "Bohdan Shevchenko",
-      "email": "shevabogdan16@gmail.com",
-      "pass": "123456",
+      "pass": "123456123124",
       "phone": "712-123-4567",
       "createDate": "5.11.2020",
       "changeDate": "5.11.2020",
@@ -53,11 +33,11 @@
     {
       "fullName": "Bohdan Shevchenko",
       "email": "shevabogdan16@gmail.com",
-      "pass": "123456",
+      "pass": "123456123",
       "phone": "712-123-4567",
       "createDate": "4.11.2020",
-      "changeDate": "4.11.2020",
-      "accType": "admin",
+      "changeDate": "5.11.2020",
+      "accType": "client",
       "id": 6
     },
     {
@@ -69,6 +49,26 @@
       "changeDate": "5.11.2020",
       "accType": "admin",
       "id": 7
+    },
+    {
+      "fullName": "gawdfoa wdawd",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "2141",
+      "phone": "111-111-1111",
+      "createDate": "5.11.2020",
+      "changeDate": "5.11.2020",
+      "accType": "client",
+      "id": 8
+    },
+    {
+      "fullName": "gawdfoa wdawd",
+      "email": "shevabogdan16@gmail.com",
+      "pass": "123124",
+      "phone": "111-111-1111",
+      "createDate": "5.11.2020",
+      "changeDate": "5.11.2020",
+      "accType": "client",
+      "id": 9
     }
   ]
 }

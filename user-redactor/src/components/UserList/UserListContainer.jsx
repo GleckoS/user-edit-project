@@ -5,7 +5,8 @@ import UserList from "./UserList";
 import {Reload} from "../../common/reload";
 
 const UserListContainer = (props) => {
-    const {userList, isEditing, DeleteUserThunk, showedArray, setCurrentItemThunk, changeEditingThunk} = props
+
+    const {isEditing, DeleteUserThunk, showedArray, setCurrentItemThunk, changeEditingThunk} = props
 
     const EditChange = (item) => {
         setCurrentItemThunk(item.id)
@@ -17,11 +18,10 @@ const UserListContainer = (props) => {
         Reload()
     }
 
-
+    const a = props
     return (
         <UserList
             showedArray={showedArray}
-            userList={userList}
             isEditing={isEditing}
             DeleteItem={DeleteItem}
             EditChange={EditChange}

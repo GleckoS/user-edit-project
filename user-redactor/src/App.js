@@ -8,7 +8,6 @@ import HeaderContainer from "./components/Header/HeaderContainer";
 function App(props) {
 
     props.initialiseThunk()
-    debugger
     return (
         <>
             {props.isFetching

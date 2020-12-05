@@ -7,8 +7,7 @@ let initialSliderState = {
     isEditing: false
 }
 
-const SET_USERS = "SET_USERS",
-    SET_CURRENT_ITEM = "SET_CURRENT_ITEM",
+const SET_CURRENT_ITEM = "SET_CURRENT_ITEM",
     CHANGE_EDITING = "CHANGE_EDITING",
     SET_SHOWED_ARRAY = "SET_SHOWED_ARRAY",
     SET_FILTERED_ARRAY = "SET_FILTERED_ARRAY",
@@ -23,12 +22,6 @@ const LoginReducer = (state = initialSliderState, action) => {
                 showedArray: action.userList,
                 filteredArray: action.userList,
                 isFetching: false
-            }
-        }
-        case SET_USERS: {
-            return {
-                ...state,
-                userList: action.userList,
             }
         }
         case SET_CURRENT_ITEM: {
@@ -51,6 +44,7 @@ const LoginReducer = (state = initialSliderState, action) => {
             }
         }
         case SET_FILTERED_ARRAY: {
+            debugger
             return {
                 ...state,
                 filteredArray: action.arr,
@@ -65,7 +59,6 @@ const LoginReducer = (state = initialSliderState, action) => {
 
 export default LoginReducer
 
-const setUsers = (userList) => ({type: SET_USERS, userList})
 const setCurrentItem = (id) => ({type: SET_CURRENT_ITEM, id})
 const changeEditing = () => ({type: CHANGE_EDITING})
 const setShowedArray = (arr) => ({type: SET_SHOWED_ARRAY, arr})
@@ -79,7 +72,9 @@ export const setCurrentItemThunk = (id) => {
 }
 
 export const ChangeUserThunk = (currentUser) => {
+    debugger
     return (dispatch) => {
+        debugger
         fetch(`http://localhost:8000/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
@@ -95,7 +90,7 @@ export const ChangeUserThunk = (currentUser) => {
                         .then(res => res.json())
                         .then(
                             (response) => {
-                                dispatch(setUsers(response))
+                                dispatch(initialise(response))
                             }
                         )
                 }
@@ -116,7 +111,9 @@ export const initialiseThunk = () => {
 }
 
 export const setFilteredArrayThunk = (arr) => {
+
     return (dispatch) => {
+        debugger
         dispatch(setFilteredArray(arr))
     }
 }
@@ -132,7 +129,7 @@ export const DeleteUserThunk = (id) => {
                         .then(res => res.json())
                         .then(
                             (response) => {
-                                dispatch(setUsers(response))
+                                dispatch(initialise(response))
                             }
                         )
                 }
@@ -168,7 +165,7 @@ export const RegisterThunk = (userInform) => {
                         .then(res => res.json())
                         .then(
                             (response) => {
-                                dispatch(setUsers(response))
+                                dispatch(initialise(response))
                             }
                         )
                 }

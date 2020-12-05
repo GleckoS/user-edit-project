@@ -5,7 +5,7 @@ import {setFilteredArrayThunk, setShowedArrayThunk} from "../../redux/usersReduc
 
 const HeaderContainer = (props) => {
 
-    const {userList, filteredArray, setShowedArrayThunk} = props
+    const {userList, filteredArray, setShowedArrayThunk, setFilteredArrayThunk} = props
 
     const [showReg, setShowReg] = useState(false)
     const RegChange = () => {
@@ -25,6 +25,7 @@ const HeaderContainer = (props) => {
 
 
     const changeShow = (value) => {
+
         let result = []
         if(value !== "0"){
             result = userList.filter(val => val.accType === value)
