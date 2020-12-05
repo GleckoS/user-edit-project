@@ -20,12 +20,12 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "mock": "json-server --watch db.json --port 8000",
-    "start": "concurrently \"npm run start\" \"npm run mock\"",
+    "dev": "concurrently \"npm run start\" \"npm run mock\"",
+    "mock": "react-scripts start",
+    "start": "node serve.js",
+
     "build": "react-scripts build",
-    "test": "node serve.js",
-    "prod": "concurrently \"npm run build\" \"npm run test\"",
+    "prod": "concurrently \"npm run build\" \"npm run start\"",
 
     "eject": "react-scripts eject"
   },
