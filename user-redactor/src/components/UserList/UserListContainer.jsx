@@ -18,7 +18,6 @@ const UserListContainer = (props) => {
         Reload()
     }
 
-    const a = props
     return (
         <UserList
             showedArray={showedArray}
