@@ -75,7 +75,7 @@ export const ChangeUserThunk = (currentUser) => {
     debugger
     return (dispatch) => {
         debugger
-        fetch(`http://localhost:8000/users/${currentUser.id}`, {
+        fetch(`https://user-edit-db.herokuapp.com/users/${currentUser.id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ export const ChangeUserThunk = (currentUser) => {
         })
             .then(
                 () => {
-                    fetch(`http://localhost:8000/users`, {
+                    fetch(`https://user-edit-db.herokuapp.com/users`, {
                         method: 'GET'
                     })
                         .then(res => res.json())
@@ -100,7 +100,7 @@ export const ChangeUserThunk = (currentUser) => {
 
 export const initialiseThunk = () => {
     return (dispatch) => {
-        fetch(`http://localhost:8000/users`)
+        fetch(`https://user-edit-db.herokuapp.com/users`)
             .then(res => res.json())
             .then(
                 (response) => {
@@ -120,12 +120,12 @@ export const setFilteredArrayThunk = (arr) => {
 
 export const DeleteUserThunk = (id) => {
     return (dispatch) => {
-        fetch(`http://localhost:8000/users/${id}`, {
+        fetch(`https://user-edit-db.herokuapp.com/users/${id}`, {
             method: 'DELETE'
         })
             .then(
                 () => {
-                    fetch(`http://localhost:8000/users`)
+                    fetch(`https://user-edit-db.herokuapp.com/users`)
                         .then(res => res.json())
                         .then(
                             (response) => {
@@ -152,7 +152,7 @@ export const changeEditingThunk = () => {
 export const RegisterThunk = (userInform) => {
     debugger
     return (dispatch) => {
-        fetch(`http://localhost:8000/users`, {
+        fetch(`https://user-edit-db.herokuapp.com/users`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -161,7 +161,7 @@ export const RegisterThunk = (userInform) => {
         })
             .then(
                 () => {
-                    fetch(`http://localhost:8000/users`)
+                    fetch(`https://user-edit-db.herokuapp.com/users`)
                         .then(res => res.json())
                         .then(
                             (response) => {
