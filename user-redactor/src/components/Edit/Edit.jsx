@@ -23,6 +23,12 @@ const Container = styled.form`
      border-radius: 20px;
      background: white;
      padding: 20px; 
+     @media(max-width: 476px){
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+     }
 `
 const Select = styled.select`
     width: 75%;
